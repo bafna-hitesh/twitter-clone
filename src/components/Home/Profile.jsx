@@ -9,7 +9,7 @@ const Profile = () => {
     <div className="profile-main">
       <Navbar />
       <div className="profile-container bg-white-dark rounded-md">
-        <div className="home-header bg-white rounded-md pd-5 ">
+        <div className=" bg-white rounded-md pd-5 ">
           <div className="home-header-title text-black-dark">
             {user.first_name} {user.last_name}
           </div>
