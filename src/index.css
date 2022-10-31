@@ -11,7 +11,9 @@ a {
   color: inherit;
   text-decoration: inherit;
 }
-
+::-webkit-scrollbar {
+  display: none;
+}
 li {
   list-style: none;
 }
@@ -47,6 +49,8 @@ li {
   background-color: rgba(246, 248, 250);
   margin-bottom: 1rem;
   backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
 }
 
 .header-title-main {
@@ -75,7 +79,8 @@ li {
   color: rgba(21, 26, 33);
   background-color: rgba(243, 244, 246);
   border-radius: 9999px;
-  border: none;
+  border: 1px solid#1d9bf0;
+  /* border: none; */
   margin-right: 5rem;
   font-weight: 700;
 }
@@ -86,19 +91,24 @@ li {
 .tweet-sec,
 .profile-container {
   width: 50%;
-  /* height: 100vh; */
-  margin-inline: auto;
+  /* margin-inline: auto; */
   /* padding: 0.5rem; */
 }
 .tweet-sec {
   border: 1px solid #eee;
+  height: 100vh;
+  overflow: auto;
 }
 .home-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  position: fixed;
 }
 .home-header {
+  position: sticky;
+  top: 0;
   border-bottom: 1px solid #eee;
+  backdrop-filter: blur(12px);
 }
 .bg-white {
   background-color: rgba(255, 255, 255);
@@ -236,8 +246,9 @@ li {
 .left-sec {
   width: 290px;
   /* flex: 1; */
-  min-height: 80%;
+  /* min-height: 80%; */
   padding: 0.5rem;
+  overflow: hidden;
 }
 
 .nav-title {
@@ -305,11 +316,12 @@ img {
 .searchbar-container {
   /* width: 25%; */
   /* margin-top: 1rem; */
-  height: 80%;
+  height: 100%;
   margin-inline: auto;
   border-radius: none;
-  background: transparent;
+  /* background: transparent; */
   padding: 1rem;
+  overflow: hidden;
 }
 .search-bar {
   /* display: none; */
@@ -360,12 +372,10 @@ img {
 .profile-main {
   display: flex;
   justify-content: space-around;
-  height: 100vh;
+  height: 100%;
+  position: fixed;
 }
 @media screen and (max-width: 500px) {
-  .header-container {
-    position: fixed;
-  }
   .left-sec {
     position: fixed;
     bottom: 0;

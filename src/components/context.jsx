@@ -8,16 +8,13 @@ export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
   const [user, setUser] = useState(userData);
-
   const [tweet, setTweet] = useState("");
-
   const [isLogin, setIsLogin] = useState(false);
-
   const [tweetArr, setTweetArr] = useState(featchData);
   const [filterTweet, setFilterTweet] = useState();
   const [isEditedTweet, setIsEditTweet] = useState({ id: "", status: false });
 
-  // async function featchData() {
+  // async function featchUserData() {
   //   const res = await fetch("https://tweets.free.beeceptor.com/profile");
   //   const data = await res.json();
   //   setUser(data);

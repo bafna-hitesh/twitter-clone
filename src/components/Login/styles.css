@@ -5,7 +5,7 @@
   padding: 2rem 3rem;
   width: 100%;
   max-width: 35rem;
-  margin: 3rem auto;
+  margin-inline: auto;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 10px 4px;
 }
 .login-header {
@@ -47,7 +47,7 @@
   outline: none;
 }
 .form-field:focus {
-  border: 1px solid blue;
+  border: 1px solid #1d9bf0;
   outline: none;
 }
 .login-btn {
@@ -61,7 +61,7 @@
   border-radius: 0.3rem;
   outline: none;
   border: 1px solid #ccc;
-  background-color: rgba(28, 75, 217);
+  background-color: #1d9bf0;
   color: #fff;
 }
 .login-btn:hover {
