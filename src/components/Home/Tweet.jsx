@@ -2,7 +2,7 @@ import React from "react";
 import { useData } from "../context";
 
 const Tweet = ({ id, tweetmsg, authorId }) => {
-  const { setTweet, tweetArr, setTweetArr, setIsEditTweet } = useData();
+  const { setTweet, tweetArr, setTweetArr, setIsEditTweet, user } = useData();
 
   function userName(userId) {
     return tweetArr.includes.users.map((e) =>
@@ -45,7 +45,9 @@ const Tweet = ({ id, tweetmsg, authorId }) => {
           <div className="tweet-user ">
             <a href="">
               <span className="tweet-user-name text-black-dark">
-                {userName(authorId)}
+                {authorId
+                  ? userName(authorId)
+                  : user.first_name + user.last_name}
               </span>
             </a>
           </div>
