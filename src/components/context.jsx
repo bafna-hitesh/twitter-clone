@@ -7,9 +7,11 @@ import { featchData, userData } from "../data";
 export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
+  const loginStatus = JSON.parse(localStorage?.getItem("loginStatus")) || "";
+
   const [user, setUser] = useState(userData);
   const [tweet, setTweet] = useState("");
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(loginStatus);
   const [tweetArr, setTweetArr] = useState(featchData);
   const [filterTweet, setFilterTweet] = useState();
   const [isEditedTweet, setIsEditTweet] = useState({ id: "", status: false });

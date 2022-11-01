@@ -5,6 +5,12 @@ import { useData } from "../context";
 const Header = () => {
   const { setIsLogin } = useData();
 
+  const logoutHandler = () => {
+    localStorage?.removeItem("loginStatus");
+    setIsLogin(false);
+    console.log("Logged Out Successfully!");
+  };
+
   return (
     <header className="header-container">
       <div className="header-title-main">
@@ -12,7 +18,7 @@ const Header = () => {
           <span className="header-title">twitter</span>
         </Link>
         <nav className="logout-main">
-          <button className="logout-btn" onClick={() => setIsLogin(false)}>
+          <button className="logout-btn" onClick={logoutHandler}>
             Log Out
           </button>
         </nav>

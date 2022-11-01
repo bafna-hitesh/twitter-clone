@@ -10,7 +10,7 @@ const TweetBtn = () => {
     if (tweet && isEditedTweet.status) {
       isEditedTweet.status = false;
       tweetArr.data.map((el) =>
-        el.id === isEditedTweet.id ? (el.text = tweet) : "el"
+        el.id === isEditedTweet.id ? (el.text = tweet) : el
       );
     } else {
       tweetArr.data.unshift(newTweet);

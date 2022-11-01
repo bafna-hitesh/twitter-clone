@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { useNavigate, redirect } from "react-router-dom";
+import { useNavigate, redirect, json } from "react-router-dom";
 import { useData } from "../context";
 import InputPasswordField from "./InputPasswordField";
 // import { Link } from "react-router-dom";
 import "./styles.css";
 
 const Login = () => {
-  const { setIsLogin } = useData();
-  const navigate = useNavigate();
-
   const emailRegex =
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/;
   const passRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+  const { setIsLogin } = useData();
+  const navigate = useNavigate();
 
   const [user, setUser] = useState({
     email: "",
@@ -34,10 +34,12 @@ const Login = () => {
       setNotify("please give right input");
     } else {
       setNotify("");
-      setIsLogin(true);
-      navigate("/home");
 
-      console.log("ok continue");
+      localStorage.setItem("loginStatus", JSON.stringify(true));
+      setIsLogin(true);
+
+      navigate("/home");
+      console.log("ok continue", ans);
     }
   };
 

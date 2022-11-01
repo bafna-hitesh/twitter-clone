@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useData } from "../context";
 
 const Searchbar = () => {
-  const { tweetArr, filterTweet, setFilterTweet } = useData();
+  const { tweetArr, setFilterTweet } = useData();
 
   const [input, setInput] = useState("");
 
