@@ -11,7 +11,7 @@ const Login = () => {
   const passRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-  const { setIsLogin } = useData();
+  const { handleLoginStatus } = useData();
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
@@ -35,11 +35,10 @@ const Login = () => {
     } else {
       setNotify("");
 
-      localStorage.setItem("loginStatus", JSON.stringify(true));
-      setIsLogin(true);
+      handleLoginStatus();
 
       navigate("/home");
-      console.log("ok continue", ans);
+      console.log("ok continue");
     }
   };
 

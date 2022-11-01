@@ -7,14 +7,22 @@ import { featchData, userData } from "../data";
 export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
-  const loginStatus = JSON.parse(localStorage?.getItem("loginStatus")) || "";
-
   const [user, setUser] = useState(userData);
   const [tweet, setTweet] = useState("");
-  const [isLogin, setIsLogin] = useState(loginStatus);
+  const [isLogin, setIsLogin] = useState(true);
   const [tweetArr, setTweetArr] = useState(featchData);
   const [filterTweet, setFilterTweet] = useState();
   const [isEditedTweet, setIsEditTweet] = useState({ id: "", status: false });
+
+  const handleLoginStatus = () => {
+    localStorage.setItem("isLogin", !isLogin);
+    setIsLogin(!isLogin);
+  };
+
+  useEffect(() => {
+    const loginStatus = localStorage.getItem("isLogin") === "true";
+    setIsLogin(loginStatus);
+  }, []);
 
   // async function featchUserData() {
   //   const res = await fetch("https://tweets.free.beeceptor.com/profile");
@@ -41,7 +49,7 @@ export const DataProvider = ({ children }) => {
     isEditedTweet,
     setIsEditTweet,
     isLogin,
-    setIsLogin,
+    handleLoginStatus,
     user,
     filterTweet,
     setFilterTweet,

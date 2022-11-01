@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 import { useData } from "../context";
 
 const Header = () => {
-  const { setIsLogin } = useData();
+  const { handleLoginStatus } = useData();
 
   const logoutHandler = () => {
-    localStorage?.removeItem("loginStatus");
-    setIsLogin(false);
+    handleLoginStatus();
     console.log("Logged Out Successfully!");
   };
 
